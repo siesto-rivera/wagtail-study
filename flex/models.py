@@ -16,6 +16,7 @@ from streams.blocks import RichTextWithTitleBlock, ImageAndTextBlock
 
 class FlexPage(Page):
 
+    parent_page_types = ["home.HomePage", "flex.FlexPage"]
     body = StreamField(
         [
             ("title", blocks.MyTitleBlock()),

@@ -5,7 +5,11 @@ from wagtail.models import Page
 
 
 class ServiceListingPage(Page):
+    parent_page_types = ["home.HomePage"]
+    subpage_types = ["services.ServicePage"]
     template = "services/service_listing_page.html"
+    max_count = 1
+
     subtitle = models.TextField(
         blank=True,
         max_length=500,
@@ -23,6 +27,9 @@ class ServiceListingPage(Page):
 
 class ServicePage(Page):
     # template: templates/services/service_page.html
+    parent_page_types = ["services.ServiceListingPage"]
+    subpage_types = []
+
     description = models.TextField(
         blank=True,
         max_length=500,
