@@ -2,7 +2,7 @@ from autoslug import AutoSlugField
 from django.db import models
 from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
-from wagtail.admin.panels import FieldPanel, PageChooserPanel
+from wagtail.admin.panels import FieldPanel, PageChooserPanel, InlinePanel
 from wagtail.models import Orderable
 
 
@@ -35,6 +35,7 @@ class Menu(ClusterableModel):
     panels = [
         FieldPanel("title"),
         FieldPanel("slug"),
+        InlinePanel("menu_items", label="메뉴 Items"),
     ]
 
     def __str__(self):
