@@ -32,7 +32,6 @@ INSTALLED_APPS = [
     "streams",
     "menus",
     "contact",
-    "widget_tweaks",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.contrib.table_block",
@@ -53,6 +52,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "widget_tweaks",
 ]
 
 MIDDLEWARE = [
