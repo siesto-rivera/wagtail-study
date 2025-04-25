@@ -10,6 +10,7 @@ FORM_FIELD_CHOICES = (
     ("multiline", _("Multi-line text")),
     ("email", _("Email")),
     ("url", _("URL")),
+    ("number", _("Number")),
 )
 
 
