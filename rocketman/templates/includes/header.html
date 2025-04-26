@@ -1,7 +1,5 @@
 {% load static  menu_tags cache %}
-
 {% get_menu "header" as navigation %}
-
 
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container">
@@ -14,14 +12,10 @@
     <div class="collapse navbar-collapse" id="navbarMenu">
       <ul class="navbar-nav ml-auto">
         {% for item in navigation.menu_items.all %}
-
         <li class="nav-item active">
           <a href="{{ item.link }}" {% if item.open_in_new_tab %}target="_blank"{% endif %} class="nav-link"> {{ item.title }}</a>
-
-
         </li>
         {% endfor %}
-
       </ul>
     </div>
   </div>

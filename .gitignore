@@ -34,3 +34,4 @@ client/node_modules
 
 ### Local static files
 /static/
+**/cache/

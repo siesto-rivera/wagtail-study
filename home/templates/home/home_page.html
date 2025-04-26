@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load wagtailimages_tags wagtailcore_tags %}
+{% load wagtailimages_tags wagtailcore_tags cache %}
 
 
 {% block banner %}
@@ -27,7 +27,17 @@
 {% endblock banner %}
 
 {% block content %}
+
+{% if not request.is_preview %}
+  {% cache 2592000 home_page_streams page.id %}
     {% for block in page.body %}
        {% include_block block %}
     {% endfor %}
+  {% endcache %}
+{% else %}
+    {% for block in page.body %}
+       {% include_block block %}
+    {% endfor %}
+{% endif %}
+
 {% endblock content %}
