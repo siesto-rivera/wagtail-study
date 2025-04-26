@@ -6,24 +6,29 @@
     <div class="row mx-lg-n3">
       <div class="px-lg-3 col-lg-3 col-md-6 col-sm-12">
         <div class="cc-footer-title">Links</div>
-
+          {% cache 2592000 site_footer %}
           {% for item in navigation.menu_items.all %}
             <a class="cc-footer-link-lg d-block" href="{{ item.link }}" {% if item.open_in_new_tab %}target="_blank"{% endif %}>
               {{ item.title }}
             </a>
           {% endfor %}
+        {% endcache %}
 
       </div>
         <div class="px-lg-2 col-lg-3 col-md-6 col-sm-12">
           <div class="cc-footer-title">Contact Us</div>
+          {% cache 2592000 footer_contact_settings %}
           {{ settings.site_settings.ContactSettings.contact  |richtext}}
+          {% endcache %}
         </div>
         <div class="px-lg-4 col-lg-3 col-md-6 col-sm-12">
           <div class="cc-footer-title">Hours</div>
+
          {{ settings.site_settings.HoursSettings.hours  |richtext}}
+
         </div>
         <div class="px-lg-3 col-lg-3 col-md-6 col-sm-12">
-
+            {% cache 2592000 footer_social_settings %}
             {% if settings.site_settings.SocialMediaSettings.facebook %}
 
               <a href="{{ settings.site_settings.SocialMediaSettings.facebook }}" class="cc-footer-social-icon">
@@ -45,6 +50,7 @@
                 <img src="{% static 'images/youtube.svg' %}" alt="YouTube">
               </a>
             {% endif %}
+            {% endcache %}
 
           <div class="cc-footer-copy">&copy; {% now "Y" %} Rocketman</div>
       </div>

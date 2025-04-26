@@ -18,6 +18,11 @@ class ContactSettings(BaseSiteSetting):
     contact = RichTextField(blank=True, null=True, features=["link"])
     panels = [FieldPanel("contact")]
 
+    def save(self, *args, **kwargs):
+        key = make_template_fragment_key("footer_contact_settings")
+        cache.delete(key)
+        return super().save(*args, **kwargs)
+
 
 @register_setting
 class SocialMediaSettings(BaseSiteSetting):
