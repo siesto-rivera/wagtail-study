@@ -22,16 +22,13 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-cwd = os.getcwd()
-CACHES = {
-    "default": {
-        "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
-        "LOCATION": f"{cwd}/cache",
-        "TIMEOUT": 300,
-        "OPTIONS": {"MAX_ENTRIES": 1000},
-        "KEY_PREFIX": "rocketman",
-    }
-}
+# cwd = os.getcwd()
+# CACHES = {
+#     "default": {
+#         "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
+#         "LOCATION": f"{cwd}/cache",
+#     }
+# }
 
 try:
     from .local import *
